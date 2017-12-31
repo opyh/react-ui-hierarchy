@@ -1,0 +1,37 @@
+{
+  "name": "react-ui-hierarchy",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "lodash.debounce": "^4.0.8"
+  },
+  "peerDependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "npmignore": "^0.2.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "20.0.3",
+    "babel-loader": "7.1.1",
+    "babel-plugin-c-3po": "^0.5.8",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react-app": "^3.0.2",
+    "babel-runtime": "6.26.0",
+    "flow-bin": "^0.61.0",
+    "flow-copy-source": "^1.2.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "prepublish": "npm run prepublish-babel && npm run prepublish-copy-flow-info && npmignore -u /lib",
+    "prepublish-babel": "NODE_ENV=production babel --no-babelrc src/ -d lib --presets=es2015,react-app --plugins=transform-flow-strip-types --ignore '*.test.js'",
+    "prepublish-copy-flow-info": "flow-copy-source src lib",
+    "flow": "flow-bin"
+  }
+}
