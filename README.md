@@ -1,4 +1,4 @@
-# `UIHierarchy`, a simple responsive app navigation component for React
+# `<UIHierarchy />`, a simple responsive app navigation component for React.
 
 **Beware, this might not be production-ready yet!**
 
@@ -6,10 +6,9 @@ A component that helps you to create UI navigation hierarchies. Like the ones yo
 mobile applications, but with a twist: It creates a tablet-compatible UI from a phone-compatible UI
 automatically.
 
-This approach works well for master-detail views, but not for every app – use it where applicable!
+This approach restricts your design, but it forces you to create minimal UI flows first, which will improve your tablet/desktop UIs automatically. It works very well for master-detail views, but not for every app – use it where applicable!
 
-I made the experience that by restricting my design, it forced me to concentrate my UI flows on the
-minimal set.
+Interested? [See how it looks](https://opyh.github.io/react-ui-hierarchy-example/), or [look at the example code](https://github.com/opyh/react-ui-hierarchy-example)!
 
 ## Installation
 
