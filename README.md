@@ -1,14 +1,15 @@
-# `UIHierarchy`, a simple responsive app navigation component
+# `UIHierarchy`, a simple responsive app navigation component for React
 
 **Beware, this might not be production-ready yet!**
 
 A component that helps you to create UI navigation hierarchies. Like the ones you know from native
 mobile applications, but with a twist: It creates a tablet-compatible UI from a phone-compatible UI
-automatically. For iOS developers, it's like a hybrid between a `UINavigationController` and a
-`UISplitViewController`.
+automatically.
 
-It restricts your design and forces you to work out your UI flows phone-first. This approach works
-well for master-detail views, but not for everything – use it where applicable!
+This approach works well for master-detail views, but not for every app – use it where applicable!
+
+I made the experience that by restricting my design, it forced me to concentrate my UI flows on the
+minimal set.
 
 ## Installation
 
