@@ -128,6 +128,7 @@ export default class UIHierarchy<O: Props> extends React.Component<O, State> {
     const style = Object.assign({}, { overflow: 'hidden' }, this.props.style);
     const changedProps = { style, ref, className };
     const divProps = Object.assign({}, this.props, changedProps);
+    delete divProps.animationDuration;
 
     return (<div {...divProps} data-animated={this.state.isAnimating} data-count={elementCount}>
       <Viewport
