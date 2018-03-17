@@ -41,8 +41,8 @@ export default class UIHierarchy<O: Props> extends React.Component<O, State> {
   };
 
   containerElement: ?HTMLDivElement;
-  animationTimeout: ?number;
-  childrenDebounceTimeout: ?number;
+  animationTimeout: ?TimeoutID;
+  childrenDebounceTimeout: ?TimeoutID;
 
   stopAnimationAndUpdateContainerSize = debounce((() => {
     this.clearAnimationTimeout();
@@ -80,10 +80,14 @@ export default class UIHierarchy<O: Props> extends React.Component<O, State> {
     if (previousCount > nextCount) {
       // Ensure a removed child stays visible until it is completely outside the viewport
       this.setState({ cachedChildren: this.props.children });
-      if (this.childrenDebounceTimeout) clearTimeout(this.childrenDebounceTimeout);
+      if (this.childrenDebounceTimeout) {
+        clearTimeout(this.childrenDebounceTimeout);
+      }
       this.childrenDebounceTimeout = setTimeout(() => {
         this.setState({ cachedChildren: null });
-        clearTimeout(this.childrenDebounceTimeout);
+        if (this.childrenDebounceTimeout) {
+          clearTimeout(this.childrenDebounceTimeout);
+        }
       }, this.props.animationDuration);
     }
 
@@ -145,8 +149,8 @@ export default class UIHierarchy<O: Props> extends React.Component<O, State> {
         ariaHidden: !childrenLayouts[index].isVisible,
         style: Object.assign(
           {},
-          child.props.style,
-          childrenLayouts[index].style,
+          child.props.style || {},
+          childrenLayouts[index].style || {},
           this.animationStyle(),
         ),
       }));
