@@ -15,6 +15,7 @@ export type Props = {
   style?: CSSStyleDeclaration,
   animationDuration: number,
   elementWidthFunction?: ElementWidthFunction,
+  ref?: React.Ref<'div'>,
 };
 
 
